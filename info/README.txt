@@ -10,6 +10,7 @@ $$$$$$/   $$$$$$$/ $$/       $$/ $$$$$$$/     $$$$/   $$$$$$/  $$/
                                 $$ |
                                 $$ |
                                 $$/
+File names can't have spaces!!!!!!!!
 
 Place ONE python and/or bash script in this folder and boot the Pi. The scripts will automatically run.
 
