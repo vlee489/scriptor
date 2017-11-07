@@ -1,5 +1,6 @@
 import os
 import time
+import re
 
 pythonLocation = '/boot/script/'
 typeNeeded = '.py'
@@ -15,15 +16,17 @@ def findfile(directory, filetype):
             return(file)
 
 
-def executepython(ver, file):
+def execute(ver, file):
     cmd = (ver, ' ', file)
-    print('Running python script ', file)
+    cmd = str(cmd)
+    cmd = re.sub('[\(\)\{\}\'\"\,<>]', '', cmd)
+    print('Running ', cmd)
     os.system(cmd)
 
 
 bashFile = findfile(pythonLocation, '.sh')
-os.system('bash ', bashFile)
+execute('bash', bashFile)
 time.sleep(1)
 pythonFile = findfile(pythonLocation, typeNeeded)
-executepython(pythonCMD, pythonFile)
+execute(pythonCMD, pythonFile)
 exit()
