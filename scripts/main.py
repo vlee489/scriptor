@@ -24,6 +24,14 @@ def execute(ver, file):
     os.system(cmd)
 
 
+def updatehost(file):
+    file = open(file, 'r')
+    hostname = file.read(1)
+
+
+
+
+
 bashFile = findfile(pythonLocation, '.sh')
 execute('bash', bashFile)
 time.sleep(1)
