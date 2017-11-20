@@ -10,6 +10,7 @@ This tool allows you to drop a **python** or **bash** script into the boot parti
 sudo apt-get update
 sudo apt-get install python3 git
 git clone https://github.com/vlee489/scriptor.git
+cd scriptor
 sudo bash install.sh
 ```
 
