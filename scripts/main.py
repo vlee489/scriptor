@@ -1,7 +1,10 @@
+# Import packages
 import os
-import time
 import re
+import time
+from pathlib import Path
 
+# Variable like script location
 pythonLocation = '/boot/script/'
 typeNeeded = '.py'
 pythonCMD = 'python3'
@@ -13,23 +16,32 @@ def findfile(directory, filetype):
         if file.endswith(filetype):
             file = (os.path.join(directory, file))
             print(file)
-            return(file)
+            return (file)
 
 
+# Executes commands with file
 def execute(ver, file):
     cmd = (ver, ' ', file)
     cmd = str(cmd)
+    # Removes speech marks and brackets
     cmd = re.sub('[\(\)\{\}\'\"\,<>]', '', cmd)
     print('Running ', cmd)
+    # Executes command
     os.system(cmd)
 
 
-def updatehost(file):
-    file = open(file, 'r')
-    hostname = file.read(1)
-
-
-
+def updatehost():
+    hostname_file = Path("/boot/script/hostname.txt")
+    # checks if the file to change hostname exists
+    if hostname_file.is_file():
+        # If file exists executes bash script
+        os.system('sudo bash /opt/scriptor/updateHostname.sh')
+        # Reboots to apply new Hostname
+        print("Rebooting to apply new hostname")
+        time.sleep(5)
+        os.system('sudo reboot')
+    else:
+        print('no Hostname to update')
 
 
 bashFile = findfile(pythonLocation, '.sh')
