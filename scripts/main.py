@@ -20,8 +20,8 @@ def findfile(directory, filetype):
 
 
 # Executes commands with file
-def execute(ver, file):
-    cmd = (ver, ' ', file)
+def execute(command, file):
+    cmd = (command, ' ', file)
     cmd = str(cmd)
     # Removes speech marks and brackets
     cmd = re.sub('[\(\)\{\}\'\"\,<>]', '', cmd)
