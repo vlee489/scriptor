@@ -16,10 +16,10 @@ def findfile(directory, filetype):
         if file.endswith(filetype):
             file = (os.path.join(directory, file))
             print(file)
-            return (file)
+            return file
 
 
-# Executes commands with file
+# Executes commands with Ifile
 def execute(command, file):
     cmd = (command, ' ', file)
     cmd = str(cmd)
@@ -44,6 +44,7 @@ def updatehost():
         print('no Hostname to update')
 
 
+updatehost()
 bashFile = findfile(pythonLocation, '.sh')
 execute('bash', bashFile)
 time.sleep(1)
