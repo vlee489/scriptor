@@ -35,7 +35,7 @@ def updatehost():
     # checks if the file to change hostname exists
     if hostname_file.is_file():
         # If file exists executes bash script
-        os.system('sudo bash /opt/scriptor/updateHostname.sh')
+        os.system('sudo bash /opt/scriptor/scripts/updateHostname.sh')
         # Reboots to apply new Hostname
         print("Rebooting to apply new hostname")
         time.sleep(5)
